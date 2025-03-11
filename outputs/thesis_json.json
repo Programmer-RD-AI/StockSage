@@ -1,0 +1,29 @@
+{
+    "investments": [
+        {
+            "company_name": "Marvell Technology, Inc.",
+            "ticker": "MRVL",
+            "thesis": "Marvell Technology shows strong growth in data infrastructure solutions, with expanding presence in 5G, cloud computing, and automotive sectors. Their custom chip solutions and strategic acquisitions position them well in the semiconductor industry."
+        },
+        {
+            "company_name": "Apple Inc.",
+            "ticker": "AAPL",
+            "thesis": "Apple continues to dominate the premium smartphone market and shows strong growth in services. The company's ecosystem lock-in and brand strength provide competitive advantages, while emerging markets and new product categories offer growth opportunities."
+        },
+        {
+            "company_name": "MongoDB, Inc.",
+            "ticker": "MDB",
+            "thesis": "MongoDB's modern database platform continues to gain enterprise adoption, with strong growth in cloud Atlas offering. Their position in the NoSQL market and expansion into AI-driven database solutions presents significant upside potential."
+        },
+        {
+            "company_name": "Rigetti Computing, Inc.",
+            "ticker": "RGTI",
+            "thesis": "Rigetti Computing is at the forefront of quantum computing development, with innovative quantum processor designs and growing partnerships. Their focus on practical quantum applications and hybrid quantum-classical computing shows promise."
+        },
+        {
+            "company_name": "Zscaler, Inc.",
+            "ticker": "ZS",
+            "thesis": "Zscaler leads in zero-trust security and cloud-native cybersecurity solutions, with strong enterprise adoption. Their platform's scalability and increasing demand for secure digital transformation drives continuous growth."
+        }
+    ]
+}

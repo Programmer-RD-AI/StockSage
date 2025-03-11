@@ -1,0 +1,100 @@
+analyze_stock_data:
+  description: >
+    Analyze 500 US stocks based on financial data from yfinance and Alpha Vantage.
+    Consider these key factors: Valuation Ratios, Profitability Analysis, Debt and Liquidity Assessment,
+    Momentum and Trend Analysis, Volume and Market Structure, Short Interest and Options Activity,
+    News and Social Analytics, Volatility and Drawdown Analysis, Position Sizing and Portfolio Fit.
+    Select the top 100 stocks based on your analysis.
+  expected_output: >
+    A list of 100 stock tickers with brief explanations of why each was selected, including
+    the key metrics and factors that led to their selection.
+  agent: fact_agent
+
+justify_stock_selection:
+  description: >
+    Review the list of 100 stocks selected by the Fact Agent and provide detailed justification
+    for why each stock was included. Focus on the quantitative metrics and how they compare
+    to industry averages and historical trends.
+  expected_output: >
+    A comprehensive justification document for the 100 selected stocks, explaining the
+    quantitative basis for their selection with specific metrics and comparative analysis.
+  agent: justification_agent
+
+optimize_stock_selection:
+  description: >
+    Review the 100 selected stocks and their justifications. Identify any potential issues,
+    inconsistencies, or overlooked factors in the selection process. Refine the list to ensure
+    it truly represents the 100 best investment opportunities based on quantitative factors.
+  expected_output: >
+    A refined list of 100 stocks with explanations of the optimization process, including
+    which factors were given more weight and why certain stocks might have been added or removed.
+  agent: optimization_agent
+
+analyze_sentiment:
+  description: >
+    Analyze market sentiment, news coverage, and social media perception for the 100 selected stocks.
+    Generate a sentiment score for each stock based on recent news, analyst opinions, social media
+    sentiment, and overall market perception. Identify the top 10 stocks based on both fundamental
+    and sentiment factors.
+  expected_output: >
+    A list of 10 stocks with sentiment scores and explanations of the sentiment analysis process,
+    including key news items, social trends, and market perception factors.
+  agent: sentiment_agent
+
+justify_sentiment_selection:
+  description: >
+    Review the 10 stocks selected based on sentiment analysis and provide detailed justification
+    for their selection. Explain how sentiment factors complement the fundamental analysis and
+    strengthen the investment case for each stock.
+  expected_output: >
+    A comprehensive justification document for the 10 selected stocks, explaining how sentiment
+    factors enhance the investment thesis for each selection.
+  agent: justification_agent
+
+optimize_sentiment_selection:
+  description: >
+    Review the 10 stocks selected based on combined quantitative and sentiment analysis. Refine
+    the selection by critically analyzing potential biases, market psychology factors, and the
+    interplay between sentiment and fundamentals.
+  expected_output: >
+    A refined list of 10 stocks with explanations of how sentiment optimization improved the
+    selection process, including consideration of potential sentiment-based risks.
+  agent: optimization_agent
+
+synthesize_final_selection:
+  description: >
+    Synthesize all previous analyses to select the top 5 investment opportunities. Consider both
+    quantitative metrics and sentiment factors, giving appropriate weight to each based on current
+    market conditions and each stock's specific situation.
+  expected_output: >
+    A list of the top 5 stocks for investment with a summary of why each represents an exceptional
+    opportunity, including key metrics, sentiment factors, and comparative advantages.
+  agent: synthesizer_agent
+
+generate_investment_thesis:
+  description: >
+    Develop comprehensive investment theses for the top 5 selected stocks. Each thesis should include
+    business overview, competitive advantages, growth catalysts, quantitative analysis, sentiment analysis,
+    potential risks, and expected return timeframe.
+  expected_output: >
+    Five detailed investment theses, one for each selected stock, with comprehensive analysis covering
+    all aspects of the investment case including valuation, growth prospects, competitive positioning,
+    risks, and expected returns.
+  agent: thesis_agent
+manage_investment_process:
+  description: >
+    You are in charge of managing the entire investment analysis process.
+    First, delegate the stock data analysis to the Financial Data Analyst.
+    Then, after receiving the optimized stock selection, delegate sentiment analysis to the Market Sentiment Specialist.
+    Once both analyses are complete, have the Investment Synthesizer identify the top 5 opportunities.
+    Finally, request comprehensive investment theses from the Investment Thesis Author.
+    
+    Throughout this process, you should review outputs at each stage and provide feedback to ensure high-quality analysis.
+    Your ultimate goal is to produce 5 exceptional investment recommendations with thorough supporting analysis.
+  expected_output: >
+    A comprehensive investment report containing:
+    1. The final 5 stock recommendations
+    2. Supporting quantitative analysis
+    3. Supporting sentiment analysis 
+    4. Complete investment theses for each recommendation
+  agent: portfolio_manager
