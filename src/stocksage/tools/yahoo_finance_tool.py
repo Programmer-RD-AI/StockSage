@@ -3,7 +3,6 @@ from crewai.tools import BaseTool
 from typing import Type, Optional, List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor
 from pydantic import BaseModel, Field
-from langsmith.run_helpers import traceable
 from stocksage.utils import get_logger, get_yfinance_data
 
 logger = get_logger()
