@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Methodology - StockSage</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Methodology";
+        var mkdocs_page_input_path = "methodology.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> StockSage
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Methodology</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#stock-universe-definition">Stock Universe Definition</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-collection-process">Data Collection Process</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#market-data">Market Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fundamental-data">Fundamental Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-data">Alternative Data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multi-factor-analysis-framework">Multi-Factor Analysis Framework</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#value-factors">Value Factors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#growth-factors">Growth Factors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quality-factors">Quality Factors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#momentum-factors">Momentum Factors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sentiment-factors">Sentiment Factors</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">StockSage</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Methodology</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="methodology">Methodology</h1>
+<p>This document details StockSage's approach to selecting the top 5 US stocks using a hierarchical multi-agent system.</p>
+<h2 id="stock-universe-definition">Stock Universe Definition</h2>
+<p>StockSage begins with a defined universe of stocks:</p>
+<ul>
+<li><strong>Markets</strong>: NYSE and NASDAQ</li>
+<li><strong>Market Capitalization</strong>: Large-cap ($10B+) and mid-cap ($2B-$10B)</li>
+<li><strong>Liquidity</strong>: Minimum average daily trading volume of 100,000 shares</li>
+<li><strong>History</strong>: Minimum of 5 years of trading history</li>
+<li><strong>Sectors</strong>: All major S&amp;P sectors included</li>
+</ul>
+<h2 id="data-collection-process">Data Collection Process</h2>
+<h3 id="market-data">Market Data</h3>
+<ul>
+<li>Daily OHLCV (Open, High, Low, Close, Volume) data</li>
+<li>Intraday price movements (15-minute intervals)</li>
+<li>Historical price data (up to 10 years)</li>
+</ul>
+<h3 id="fundamental-data">Fundamental Data</h3>
+<ul>
+<li>Quarterly financial statements</li>
+<li>Key financial ratios and metrics</li>
+<li>Earnings reports and surprises</li>
+<li>Analyst estimates and revisions</li>
+</ul>
+<h3 id="alternative-data">Alternative Data</h3>
+<ul>
+<li>News sentiment from financial publications</li>
+<li>Social media sentiment analysis</li>
+<li>Insider trading activity</li>
+<li>ESG (Environmental, Social, Governance) metrics</li>
+<li>Patent filings and R&amp;D expenditures</li>
+</ul>
+<h2 id="multi-factor-analysis-framework">Multi-Factor Analysis Framework</h2>
+<p>StockSage employs a comprehensive multi-factor approach:</p>
+<h3 id="value-factors">Value Factors</h3>
+<ul>
+<li>Price-to-Earnings (P/E) ratio</li>
+<li>Price-to-Book (P/B) ratio</li>
+<li>Price-to-Sales (P/S) ratio</li>
+<li>EV/EBITDA</li>
+<li>Free Cash Flow Yield</li>
+</ul>
+<h3 id="growth-factors">Growth Factors</h3>
+<ul>
+<li>Revenue growth (1-year, 3-year, 5-year)</li>
+<li>Earnings growth (1-year, 3-year, 5-year)</li>
+<li>Cash flow growth</li>
+<li>Profit margin expansion</li>
+<li>R&amp;D growth rate</li>
+</ul>
+<h3 id="quality-factors">Quality Factors</h3>
+<ul>
+<li>Return on Equity (ROE)</li>
+<li>Return on Assets (ROA)</li>
+<li>Debt-to-Equity ratio</li>
+<li>Interest coverage ratio</li>
+<li>Earnings stability</li>
+</ul>
+<h3 id="momentum-factors">Momentum Factors</h3>
+<ul>
+<li>Price momentum (3-month, 6-month, 12-month)</li>
+<li>Earnings momentum</li>
+<li>Analyst revision momentum</li>
+<li>Relative strength vs. industry</li>
+<li>Moving average crossovers</li>
+</ul>
+<h3 id="sentiment-factors">Sentiment Factors</h3>
+<ul>
+<li>Analyst recommendations</li>
+<li>News sentiment score</li>
+<li>Social media sentiment</li>
+<li>Insider buying/selling activity</li>
+<li>Short interest ratio</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../introduction/" class="btn btn-neutral float-left" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
