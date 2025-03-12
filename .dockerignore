@@ -1,0 +1,10 @@
+.history/
+.ruff_cache/
+.venv/
+archive/
+docs/
+tests/
+mkdocs.yml
+LICENSE
+.gitignore
+.pytest_cache/

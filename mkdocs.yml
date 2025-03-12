@@ -1,0 +1,12 @@
+site_name: StockSage
+summary: Hierarchical Multi-Agent System for Top 5 US Stock Selection
+authors:
+    - Ranuga Disansa
+    - Sasvidu Abesinghe
+    - Yasiru Ravisara Fernando
+date: 2024-12-30
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Methodology: methodology.md
+theme: readthedocs

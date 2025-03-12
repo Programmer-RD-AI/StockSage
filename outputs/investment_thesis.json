@@ -1,0 +1,343 @@
+{
+  "companies": [
+    {
+      "name": "Apple Inc.",
+      "ticker": "AAPL",
+      "industry": {
+        "sector": "Technology",
+        "subIndustry": "Consumer Electronics"
+      },
+      "metadata": {
+        "founded": null,
+        "headquarters": null
+      },
+      "investmentThesis": {
+        "recommendation": "Buy",
+        "conviction": "High",
+        "keyDrivers": [
+          "Robust financial health",
+          "Innovation leadership",
+          "Strong ecosystem with services promoting recurring revenue"
+        ],
+        "expectedReturn": {
+          "value": 15,
+          "timeframe": "12 months"
+        },
+        "riskAssessment": {
+          "level": "Moderate",
+          "factors": ["Competitive threats", "Technological disruptions"]
+        },
+        "monitoringTriggers": [
+          "New product launches",
+          "Services revenue growth",
+          "Market share changes"
+        ]
+      },
+      "quantitativeData": {
+        "valuationMetrics": {
+          "marketCap": null,
+          "peRatio": null,
+          "pbRatio": null
+        },
+        "growthRates": {
+          "revenueGrowth": {
+            "value": null,
+            "timeframe": null
+          }
+        },
+        "financialRatios": {
+          "profitMargin": {
+            "value": 24.3,
+            "unit": "%"
+          }
+        },
+        "riskMetrics": {
+          "probability": null,
+          "impact": null
+        }
+      },
+      "investmentRecommendationDetails": {
+        "priceTarget": null,
+        "timeframes": {
+          "startDate": null,
+          "endDate": null
+        },
+        "returnExpectations": {
+          "components": null
+        },
+        "positionSizingGuidance": {
+          "rationale": null
+        }
+      }
+    },
+    {
+      "name": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "industry": {
+        "sector": "Communication Services",
+        "subIndustry": "Internet Content & Information"
+      },
+      "metadata": {
+        "founded": null,
+        "headquarters": null
+      },
+      "investmentThesis": {
+        "recommendation": "Buy",
+        "conviction": "High",
+        "keyDrivers": [
+          "Diversification into high-growth sectors like AI and cloud services"
+        ],
+        "expectedReturn": {
+          "value": 12,
+          "timeframe": "12 months"
+        },
+        "riskAssessment": {
+          "level": "Low to Moderate",
+          "factors": ["Regulatory oversight"]
+        },
+        "monitoringTriggers": [
+          "AI and cloud service development",
+          "Regulatory changes"
+        ]
+      },
+      "quantitativeData": {
+        "valuationMetrics": {
+          "marketCap": null,
+          "peRatio": null,
+          "pbRatio": null
+        },
+        "growthRates": {
+          "revenueGrowth": {
+            "value": 11.8,
+            "timeframe": null
+          }
+        },
+        "financialRatios": {
+          "profitMargin": {
+            "value": null,
+            "unit": "%"
+          }
+        },
+        "riskMetrics": {
+          "probability": null,
+          "impact": null
+        }
+      },
+      "investmentRecommendationDetails": {
+        "priceTarget": null,
+        "timeframes": {
+          "startDate": null,
+          "endDate": null
+        },
+        "returnExpectations": {
+          "components": null
+        },
+        "positionSizingGuidance": {
+          "rationale": null
+        }
+      }
+    },
+    {
+      "name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "industry": {
+        "sector": "Technology",
+        "subIndustry": "Software - Infrastructure"
+      },
+      "metadata": {
+        "founded": null,
+        "headquarters": null
+      },
+      "investmentThesis": {
+        "recommendation": "Buy",
+        "conviction": "High",
+        "keyDrivers": ["Expanding cloud services", "Enterprise solutions"],
+        "expectedReturn": {
+          "value": 10,
+          "timeframe": "12 months"
+        },
+        "riskAssessment": {
+          "level": "Low",
+          "factors": ["Broad diversification and tech reliance"]
+        },
+        "monitoringTriggers": [
+          "Azure growth",
+          "Office adoption rates",
+          "M&A activity"
+        ]
+      },
+      "quantitativeData": {
+        "valuationMetrics": {
+          "marketCap": null,
+          "peRatio": null,
+          "pbRatio": null
+        },
+        "growthRates": {
+          "revenueGrowth": {
+            "value": null,
+            "timeframe": null
+          }
+        },
+        "financialRatios": {
+          "profitMargin": {
+            "value": 35.4,
+            "unit": "%"
+          }
+        },
+        "riskMetrics": {
+          "probability": null,
+          "impact": null
+        }
+      },
+      "investmentRecommendationDetails": {
+        "priceTarget": null,
+        "timeframes": {
+          "startDate": null,
+          "endDate": null
+        },
+        "returnExpectations": {
+          "components": null
+        },
+        "positionSizingGuidance": {
+          "rationale": null
+        }
+      }
+    },
+    {
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "industry": {
+        "sector": "Consumer Discretionary",
+        "subIndustry": "Internet & Direct Marketing Retail"
+      },
+      "metadata": {
+        "founded": null,
+        "headquarters": null
+      },
+      "investmentThesis": {
+        "recommendation": "Buy",
+        "conviction": "Medium-High",
+        "keyDrivers": ["Dominant e-commerce presence", "AWS growth"],
+        "expectedReturn": {
+          "value": 20,
+          "timeframe": "18 months"
+        },
+        "riskAssessment": {
+          "level": "Medium",
+          "factors": ["Regulatory and operating margin pressures"]
+        },
+        "monitoringTriggers": [
+          "AWS performance",
+          "Consumer demand trends",
+          "Regulatory impacts"
+        ]
+      },
+      "quantitativeData": {
+        "valuationMetrics": {
+          "marketCap": null,
+          "peRatio": null,
+          "pbRatio": null
+        },
+        "growthRates": {
+          "revenueGrowth": {
+            "value": 20,
+            "timeframe": null
+          }
+        },
+        "financialRatios": {
+          "profitMargin": {
+            "value": null,
+            "unit": "%"
+          }
+        },
+        "riskMetrics": {
+          "probability": null,
+          "impact": null
+        }
+      },
+      "investmentRecommendationDetails": {
+        "priceTarget": null,
+        "timeframes": {
+          "startDate": null,
+          "endDate": null
+        },
+        "returnExpectations": {
+          "components": null
+        },
+        "positionSizingGuidance": {
+          "rationale": null
+        }
+      }
+    },
+    {
+      "name": "Tesla Inc.",
+      "ticker": "TSLA",
+      "industry": {
+        "sector": "Consumer Discretionary",
+        "subIndustry": "Automobiles"
+      },
+      "metadata": {
+        "founded": null,
+        "headquarters": null
+      },
+      "investmentThesis": {
+        "recommendation": "Hold",
+        "conviction": "Medium",
+        "keyDrivers": ["EV market leadership", "Renewable energy momentum"],
+        "expectedReturn": {
+          "value": 8,
+          "timeframe": "12 months"
+        },
+        "riskAssessment": {
+          "level": "High",
+          "factors": [
+            "Competition",
+            "Technological changes",
+            "Leadership dependency"
+          ]
+        },
+        "monitoringTriggers": [
+          "Vehicle delivery targets",
+          "Innovative advancements",
+          "Regulatory news"
+        ]
+      },
+      "quantitativeData": {
+        "valuationMetrics": {
+          "marketCap": null,
+          "peRatio": null,
+          "pbRatio": null
+        },
+        "growthRates": {
+          "revenueGrowth": {
+            "value": null,
+            "timeframe": null
+          }
+        },
+        "financialRatios": {
+          "profitMargin": {
+            "value": null,
+            "unit": "%"
+          }
+        },
+        "riskMetrics": {
+          "probability": null,
+          "impact": null
+        }
+      },
+      "investmentRecommendationDetails": {
+        "priceTarget": null,
+        "timeframes": {
+          "startDate": null,
+          "endDate": null
+        },
+        "returnExpectations": {
+          "components": null
+        },
+        "positionSizingGuidance": {
+          "rationale": null
+        }
+      }
+    }
+  ]
+}

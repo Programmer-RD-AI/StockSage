@@ -1,0 +1,1354 @@
+analyze_stock_data:
+  description: >
+    Perform comprehensive quantitative analysis of 500 US equities utilizing financial data from yfinance and Alpha Vantage APIs.
+    Evaluate each stock across these critical dimensions with specific metrics:
+    
+    1. Valuation (25%): 
+       - Forward and trailing P/E with 5-year historical context
+       - P/S, P/B with sector-relative percentiles
+       - EV/EBITDA compared to industry averages
+       - PEG ratio with growth adjustment quality assessment
+    
+    2. Profitability (20%):
+       - ROE, ROA, ROIC with 3-year trend analysis and sector benchmarking
+       - Gross/operating/net margin progression with variance analysis
+       - Cash conversion efficiency and capital allocation effectiveness
+       - Profitability sustainability assessment using competitive moat indicators
+    
+    3. Financial Health (15%):
+       - Short and long-term debt ratios with coverage metrics
+       - Interest coverage with stress testing under rising rate scenarios
+       - Current and quick ratios with working capital efficiency analysis
+       - Cash flow adequacy for operations, investment, and financing activities
+    
+    4. Growth Trajectory (20%):
+       - Revenue CAGR (1yr, 3yr, 5yr) with quality assessment
+       - EPS growth consistency and quality analysis
+       - FCF growth with reinvestment rate implications
+       - Forward growth catalysts identification with probability weighting
+    
+    5. Market Performance (10%):
+       - Price momentum vs. benchmarks across multiple timeframes
+       - Relative strength indicators with volatility adjustment
+       - Volume trend analysis with institutional flow indicators
+       - Technical pattern recognition with statistical significance testing
+    
+    6. Risk-Adjusted Metrics (10%):
+       - Beta with up/down market capture ratios
+       - Maximum drawdown with recovery period analysis
+       - Sharpe/Sortino ratios with peer comparison
+       - Value-at-risk assessment across multiple timeframes
+    
+    Select precisely the top 100 stocks demonstrating superior risk-adjusted potential based on a composite scoring methodology that weights the above factors appropriately for each sector and market capitalization category.
+  expected_output: >
+    A comprehensive equity analysis document with:
+    
+    1. Executive Summary (10%):
+       - Summary of methodology with factor weighting justification
+       - Key findings and notable patterns across sectors/industries
+       - Market environment context affecting selection criteria
+    
+    2. Ranked Stock List (30%):
+       - Table of 100 stocks with precise rankings (1-100)
+       - For each: full legal company name, ticker symbol, sector, industry, market cap
+       - Composite score with component breakdowns (valuation, growth, etc.)
+       - Percentile ranking within sector and overall universe
+    
+    3. Quantitative Analysis (40%):
+       - Individual stock scorecards with standardized metrics
+       - Radar charts showing relative strengths/weaknesses across dimensions
+       - Historical trend visualizations for key metrics
+       - Peer comparison matrices with percentile rankings
+    
+    4. Selection Justification (15%):
+       - Specific quantitative evidence for each stock's inclusion
+       - Identification of distinctive competitive advantages
+       - Comparative analysis vs. sector/industry benchmarks
+       - Growth-adjusted valuation analysis with scenario testing
+    
+    5. Risk Assessment (5%):
+       - Potential red flags requiring deeper investigation
+       - Volatility and drawdown analysis
+       - Earnings quality and financial statement integrity assessment
+       - Concentration risk evaluation across sectors and factors
+  agent: fact_agent
+  output_file: "outputs/stock_data_analysis.md"
+
+manage_investment_process:
+  description: >
+    Orchestrate the complete multi-stage investment analysis workflow, ensuring logical sequencing, quality control, and seamless information flow between specialized agents. Your responsibilities include:
+    
+    1. STRATEGIC ORCHESTRATION (30%):
+       - Execute the analytical workflow in optimal sequence:
+         * Phase 1 (Foundation): Direct fact_agent to perform comprehensive quantitative screening
+         * Phase 2 (Validation): Task justification_agent to critically evaluate stock selection methodology
+         * Phase 3 (Refinement): Commission optimization_agent to enhance the 100-stock list
+         * Phase 4 (Multi-Dimensional): Direct sentiment_agent to perform perception analysis
+         * Phase 5 (Integration): Task analysis_agent to synthesize quantitative and qualitative factors
+         * Phase 6 (Selection): Guide synthesizer_agent to identify the top 5 opportunities
+         * Phase 7 (Documentation): Direct thesis_agent to develop institutional-quality investment theses
+    
+    2. QUALITY ASSURANCE (30%):
+       - Implement rigorous quality control protocols:
+         * Apply data integrity verification at each analytical stage
+         * Ensure methodological consistency across all analyses
+         * Verify statistical validity of quantitative claims
+         * Confirm factual accuracy of all company information
+         * Validate that all recommendations use real companies with correct tickers
+         * Ensure appropriate depth and breadth of analysis at each stage
+    
+    3. INTERFACE MANAGEMENT (20%):
+       - Facilitate seamless handoffs between specialized agents:
+         * Transform outputs from each stage into optimally structured inputs for subsequent stages
+         * Identify and resolve information gaps between analytical phases
+         * Standardize data formats for consistent interpretation
+         * Ensure critical insights are preserved throughout the analytical pipeline
+    
+    4. ANALYTICAL LEADERSHIP (20%):
+       - Provide strategic guidance across the analytical process:
+         * Address analytical blind spots through targeted investigation
+         * Balance quantitative rigor with qualitative insights
+         * Maintain focus on identifying exceptional risk-adjusted opportunities
+         * Challenge consensus views with informed contrarian perspectives
+         * Ensure consistent investment philosophy application across all analyses
+  expected_output: >
+    An executive-level investment process report containing:
+    
+    1. Executive Summary (10%):
+       - Overview of the 5 recommended investments with conviction levels
+       - Key differentiation factors for each recommendation
+       - Portfolio-level considerations and strategic themes
+       - Summary of the analytical process and key insights gained
+    
+    2. Investment Recommendations (30%):
+       - Detailed profiles of the 5 final selections
+       - Comprehensive investment thesis for each recommendation
+       - Specific entry strategies and position sizing guidance
+       - Expected return scenarios with probability distributions
+       - Risk management parameters and monitoring frameworks
+    
+    3. Analytical Process Documentation (25%):
+       - Workflow visualization with key milestones and decision points
+       - Quality assurance measures implemented at each stage
+       - Methodology evolution and refinement throughout the process
+       - Critical insights that transformed the analysis
+    
+    4. Multi-Perspective Integration (20%):
+       - Quantitative and qualitative factor integration methodology
+       - Weight allocation justification across different analytical dimensions
+       - Tension points between different analytical perspectives and resolution approach
+       - Value added by the multi-agent analytical framework
+    
+    5. Implementation Guidance (15%):
+       - Portfolio construction recommendations
+       - Execution strategies for each position
+       - Monitoring framework with key metrics and thresholds
+       - Risk management protocols for various market scenarios
+    
+    6. Appendices:
+       - Comprehensive supporting analysis from each stage
+       - Detailed methodology documentation
+       - Data sources and validation procedures
+       - Scenario testing and sensitivity analysis
+  agent: portfolio_manager
+  output_file: "outputs/investment_report.md"
+
+verify_thesis_json:
+  description: >
+    Perform rigorous validation of the investment thesis JSON document to ensure absolute accuracy of company information, structural integrity, and analytical quality. Your validation must include:
+
+    1. COMPANY INFORMATION VERIFICATION (40%):
+       - Cross-reference each company name and ticker pair against multiple authoritative sources:
+         * SEC EDGAR database for official registered company names
+         * Primary stock exchanges (NYSE, NASDAQ, etc.) for current listings
+         * Bloomberg, Reuters, or FactSet for data consistency
+         * Company investor relations websites for official naming conventions
+       - Verify ticker accuracy with exchange-specific formatting:
+         * Include appropriate exchange prefixes/suffixes for non-US listings
+         * Account for share class designations (e.g., GOOG vs. GOOGL)
+         * Check for recent ticker changes due to rebranding or corporate actions
+         * Confirm delisted stocks have been appropriately excluded
+    
+    2. STRUCTURAL VALIDATION (20%):
+       - Ensure perfect adherence to required JSON schema:
+         * Validate against formal JSON schema definition
+         * Verify presence of all required fields for each company object
+         * Confirm proper nesting and hierarchical relationships
+         * Test for proper value types in each field (string, number, array, etc.)
+       - Apply programmatic validation with comprehensive error detection:
+         * Check for syntactic validity with JSON parser
+         * Verify semantic correctness of field relationships
+         * Test for edge cases and potential data inconsistencies
+         * Measure structural consistency across all company entries
+    
+    3. CONTENT QUALITY ASSESSMENT (30%):
+       - Evaluate thesis substantiveness and specificity:
+         * Verify each thesis contains company-specific analysis (not generic content)
+         * Confirm appropriate analytical depth with quantitative support
+         * Check for factual accuracy of company descriptions and metrics
+         * Ensure forward-looking statements have reasonable justification
+       - Apply analytical quality control measures:
+         * Assess logical consistency within each thesis
+         * Verify cited metrics against reliable financial sources
+         * Check temporal relevance of included data (recency)
+         * Evaluate balanced treatment of risks and opportunities
+    
+    4. REPLACEMENT PROTOCOL (10%):
+       - Implement systematic process for handling problematic entries:
+         * Identify any instances of generic references or placeholders
+         * Research appropriate replacements maintaining sector/industry balance
+         * Document all replacements with justification in validation notes
+         * Ensure replacement entries maintain analytical quality standards
+  expected_output: >
+    A comprehensive verification report containing:
+    
+    1. Validation Summary (15%):
+       - Overall assessment of JSON integrity and accuracy
+       - Quantification of issues found and resolved
+       - Description of verification methodology and sources consulted
+       - Confidence rating for the final verified document
+    
+    2. Company Information Validation (25%):
+       - Complete verification table of all company name and ticker pairs
+       - Sources used for verification with timestamps
+       - Notation of any discrepancies found and resolutions
+       - Special cases requiring additional verification procedures
+    
+    3. Structural Analysis (20%):
+       - Schema compliance assessment with technical validation results
+       - Field-by-field completeness verification
+       - Data type and format verification results
+       - Nested structure integrity confirmation
+    
+    4. Content Quality Evaluation (25%):
+       - Assessment of thesis quality and specificity for each company
+       - Identification of analytical strengths and weaknesses
+       - Factual accuracy verification with source citations
+       - Consistency evaluation across the document
+    
+    5. Modification Log (15%):
+       - Detailed record of all changes made during verification
+       - Before/after comparisons of significant modifications
+       - Justification for each substantive change
+       - Impact assessment of modifications on overall quality
+    
+    6. The final verified JSON file with:
+       - Exactly the specified number of investment recommendations
+       - Perfect company name and ticker symbol accuracy
+       - Comprehensive, company-specific investment theses
+       - Full compliance with structural requirements
+  agent: thesis_agent
+  output_file: "outputs/verified_thesis.json"
+
+analyze_sentiment:
+  description: >
+    Conduct sophisticated multi-dimensional sentiment analysis for each of the 100 stocks identified in quantitative screening, creating comprehensive perception profiles that capture market psychology across diverse information channels:
+    
+    1. FINANCIAL MEDIA SENTIMENT (20%):
+       - Analyze mainstream financial publications with source-weighted importance:
+         * Major financial outlets (Wall Street Journal, Financial Times, Bloomberg)
+         * Industry-specific publications relevant to each company's sectors
+         * Analyst research reports from major investment banks
+         * Earnings call transcripts with natural language processing
+       - Apply temporal analysis across multiple timeframes:
+         * Short-term (last 30 days) for immediate sentiment shifts
+         * Medium-term (90 days) for developing narrative trends
+         * Long-term (180+ days) for persistent sentiment patterns
+       - Extract specific sentiment drivers with attributional analysis:
+         * Management credibility assessment
+         * Strategic initiative reception
+         * Product/service evaluation
+         * Competitive positioning perception
+    
+    2. CONSUMER SENTIMENT ANALYSIS (20%):
+       - Evaluate product and service reputation across platforms:
+         * Industry-specific review aggregators with sentiment extraction
+         * Consumer feedback forums with statistical sampling
+         * App store ratings and review content analysis (where applicable)
+         * Support ticket/complaint databases with trend analysis
+       - Track sentiment evolution with specific metrics:
+         * Customer satisfaction score trends (NPS or equivalent)
+         * Sentiment volatility and directional momentum
+         * Feature-specific sentiment breakdown
+         * Competitive benchmarking of sentiment metrics
+    
+    3. LEADERSHIP PERCEPTION ASSESSMENT (15%):
+       - Quantify market confidence in management:
+         * Executive communication effectiveness scoring
+         * Track record assessment of promises vs. delivery
+         * Leadership stability metrics and succession planning quality
+         * Strategic vision clarity and market reception
+       - Analyze insider behavior patterns:
+         * Trading patterns with statistical significance testing
+         * Executive turnover relative to industry norms
+         * Board governance quality assessment
+         * Management accessibility and transparency metrics
+    
+    4. DIGITAL SENTIMENT LANDSCAPE (25%):
+       - Apply advanced social listening across platforms:
+         * Twitter with cashtag and mention tracking
+         * Reddit (WallStreetBets, investing subreddits, company-specific subreddits)
+         * LinkedIn for professional sentiment and industry expert views
+         * StockTwits and other investment communities
+       - Implement quantitative sentiment metrics:
+         * Volume-adjusted sentiment scores
+         * Engagement-weighted opinion analysis
+         * Sentiment distribution modeling
+         * Influence-adjusted sentiment impact metrics
+       - Track sentiment diffusion patterns:
+         * Viral coefficient of sentiment narratives
+         * Echo chamber effects and sentiment amplification
+         * Cross-platform sentiment consistency
+         * Information cascade detection
+    
+    5. ESG PERCEPTION ANALYSIS (20%):
+       - Environmental practices perception:
+         * Sustainability initiative reception tracking
+         * Environmental controversy impact assessment
+         * Green credential credibility analysis
+         * Climate strategy perception relative to industry peers
+       - Governance reputation evaluation:
+         * Board effectiveness sentiment tracking
+         * Executive compensation perception analysis
+         * Corporate transparency sentiment
+         * Shareholder alignment perception
+       - Social impact sentiment analysis:
+         * Workforce treatment perception tracking
+         * Community relationship sentiment analysis
+         * Diversity and inclusion initiative reception
+         * Product responsibility sentiment assessment
+  expected_output: >
+    A comprehensive sentiment intelligence report consisting of:
+    
+    1. Executive Summary (10%):
+       - Key findings and sentiment patterns across the 100 stocks
+       - Identification of notable sentiment outliers (positive and negative)
+       - Cross-dimensional sentiment consistency analysis
+       - Sectors with strongest positive/negative sentiment momentum
+    
+    2. Company-Specific Sentiment Profiles (40%):
+       - Individual sentiment dashboards for all 100 companies
+       - Multi-dimensional radar charts showing relative sentiment strength
+       - Sentiment trend visualization across time periods
+       - Source-weighted aggregate sentiment scores with component breakdowns
+    
+    3. Sentiment Driver Analysis (20%):
+       - Identification of specific catalysts driving sentiment shifts
+       - Natural language processing topic extraction
+       - Key phrase frequency analysis with sentiment context
+       - Entity-relationship mapping of sentiment influencers
+    
+    4. Comparative Sentiment Analysis (15%):
+       - Sector-based sentiment benchmarking
+       - Peer group sentiment comparisons
+       - Market-relative sentiment positioning
+       - Sentiment anomaly detection with statistical significance
+    
+    5. Predictive Sentiment Indicators (15%):
+       - Leading sentiment patterns with historical correlation analysis
+       - Sentiment divergence identification (from fundamental metrics)
+       - Sentiment momentum indicators with significance testing
+       - Sentiment reversal signal detection framework
+    
+    6. Appendices:
+       - Sentiment methodology documentation
+       - Source weighting justification
+       - Statistical significance testing protocols
+       - Sentiment extraction techniques and validation procedures
+  agent: sentiment_agent
+  output_file: "outputs/sentiment_analysis.md"
+
+perform_integrated_analysis:
+  description: >
+    Synthesize quantitative financial analysis with multi-dimensional sentiment intelligence to develop a unified analytical framework that identifies superior investment opportunities through the integration of complementary perspectives. Your analysis must:
+    
+    1. DEVELOP INTEGRATED EVALUATION ARCHITECTURE (25%):
+       - Create a sophisticated factor integration framework:
+         * Design company-specific weighting algorithms that adjust factor importance based on business model characteristics
+         * Implement sector-specific integration models recognizing different success drivers across industries
+         * Develop feedback mechanisms where sentiment factors influence quantitative interpretation and vice versa
+         * Construct composite scoring with appropriate normalization techniques
+       - Apply contextual calibration mechanisms:
+         * Adjust factor weights based on current market regime (momentum/value, risk-on/risk-off)
+         * Implement time horizon adjustments for different types of signals
+         * Account for company-specific attributes that impact factor relevance
+         * Consider signal quality and confidence metrics in weighting
+    
+    2. PERFORM MULTI-FACTOR CONVERGENCE ANALYSIS (30%):
+       - Identify confirmation patterns:
+         * Stocks where quantitative strength aligns with positive sentiment trajectories
+         * Companies with strong fundamental momentum confirmed by sentiment signals
+         * Cases where sentiment provides validating context for quantitative metrics
+         * Positive feedback loops between fundamental performance and market perception
+       - Detect informative divergences:
+         * Value opportunities where strong fundamentals exist despite negative sentiment
+         * Situations where sentiment improvement precedes fundamental metric enhancement
+         * Cases where sentiment reflects emerging strengths not yet captured in financial data
+         * Potential shorts where sentiment deterioration contradicts currently strong metrics
+    
+    3. IMPLEMENT ADAPTIVE RANKING METHODOLOGY (25%):
+       - Apply sophisticated stratification techniques:
+         * Develop composite ranking incorporating both sentiment and fundamental dimensions
+         * Create component rankings for different factor categories with appropriate weighting
+         * Generate risk-adjusted scoring that accounts for both quantitative and sentiment volatility
+         * Implement confidence-adjusted ranking that reflects data quality and signal strength
+       - Incorporate advanced contextual adjustments:
+         * Competitive positioning relative to industry peers
+         * Alignment with macroeconomic and sector-specific trends
+         * Adjustment for company lifecycle stage and maturity
+         * Position in relevant technology adoption curves
+    
+    4. CONSTRUCT ROBUST SELECTION FRAMEWORK (20%):
+       - Design rigorous filtering mechanics:
+         * Multi-stage screening process with progressive refinement
+         * Minimum thresholds for critical factors with zero-tolerance criteria
+         * Balanced consideration of opportunities and risks across dimensions
+         * Diversification constraints to prevent overconcentration
+       - Implement comprehensive documentation protocols:
+         * Transparent selection methodology with explicit criteria
+         * Detailed justification for each company's inclusion
+         * Alternative perspectives consideration
+         * Confidence assessment for different components of the analysis
+  expected_output: >
+    A sophisticated integrated analysis report containing:
+    
+    1. Analytical Framework Documentation (15%):
+       - Detailed explanation of the integration methodology
+       - Factor weights with rationale and adjustment mechanisms
+       - Signal processing techniques and normalization procedures
+       - Backtesting results demonstrating framework efficacy
+    
+    2. Top Investment Opportunities (30%):
+       - Ranked list of 10 highest-conviction opportunities
+       - Comprehensive profile for each selection with:
+         * Integrated score with component breakdown
+         * Key quantitative strengths with specific metrics
+         * Sentiment profile across dimensions
+         * Synergistic patterns between quantitative and sentiment factors
+    
+    3. Selection Justification (25%):
+       - Company-specific investment theses integrating both perspectives
+       - Comparative analysis versus sector peers and broader market
+       - Specific catalysts identified through integrated analysis
+       - Risk assessment incorporating both quantitative and sentiment factors
+    
+    4. Analytical Insights (20%):
+       - Identification of patterns where sentiment enhanced quantitative understanding
+       - Analysis of cases where sentiment provided early signals of fundamental changes
+       - Examination of situations where sentiment and fundamentals diverged with implications
+       - Exploration of how integrated analysis revealed opportunities invisible to single-perspective approaches
+    
+    5. Methodological Appendices (10%):
+       - Detailed factor definitions and calculation methodologies
+       - Data quality assessment and confidence metrics
+       - Statistical significance testing for key findings
+       - Alternative scenarios with sensitivity analysis
+  agent: analysis_agent
+  output_file: "outputs/integrated_analysis.md"
+
+justify_stock_selection:
+  description: >
+    Conduct a methodologically rigorous, evidence-based evaluation of the 100 stocks identified through quantitative screening to validate selection integrity, identify potential methodological biases, and assess overall portfolio construction quality. Your analysis must:
+    
+    1. APPLY ROBUST VALIDATION METHODOLOGY (30%):
+       - Implement comprehensive benchmarking protocols:
+         * Compare key metrics against appropriate industry-specific benchmarks
+         * Analyze performance versus relevant factor indices (value, growth, quality)
+         * Evaluate relative positioning within sector peer groups
+         * Test selection quality against alternative screening methodologies
+       - Assess methodological consistency:
+         * Evaluate criteria application across different market capitalizations
+         * Test for sector-specific biases in the selection framework
+         * Analyze factor exposure balance and potential overconcentration
+         * Validate statistical significance of differentiating metrics
+    
+    2. PERFORM RIGOROUS INDIVIDUAL STOCK ASSESSMENT (40%):
+       - Deploy multi-factor validation framework:
+         * Create standardized evaluation templates with consistent metrics
+         * Analyze historical persistence of key performance indicators
+         * Evaluate quality of earnings and accounting integrity
+         * Assess management effectiveness through quantifiable metrics
+       - Implement comparative context analysis:
+         * Position each stock within appropriate peer universe
+         * Calculate percentile rankings for key metrics within sectors
+         * Evaluate growth-adjusted valuation relative to historical norms
+         * Analyze competitive positioning using quantifiable market share data
+    
+    3. CONDUCT PORTFOLIO-LEVEL ANALYSIS (20%):
+       - Evaluate aggregate portfolio characteristics:
+         * Factor exposure analysis across style dimensions
+         * Sector and industry allocation assessment
+         * Market capitalization distribution analysis
+         * Geographical exposure evaluation
+       - Apply portfolio construction quality metrics:
+         * Diversification effectiveness measurement
+         * Correlation structure analysis
+         * Risk contribution assessment
+         * Expected return distribution modeling
+    
+    4. IDENTIFY POTENTIAL IMPROVEMENTS (10%):
+       - Conduct edge case analysis:
+         * Identify and evaluate outliers with extreme metrics
+         * Assess borderline inclusions/exclusions at selection thresholds
+         * Test selection robustness under alternative data periods
+         * Evaluate sensitivity to key assumption changes
+       - Generate enhancement recommendations:
+         * Specific methodological refinements with expected impact
+         * Alternative weighting schemes for selection criteria
+         * Gap identification in current selection methodology
+         * Suggested supplementary metrics for consideration
+  expected_output: >
+    A comprehensive stock selection justification report containing:
+    
+    1. Executive Summary (10%):
+       - Overall assessment of selection methodology quality
+       - Key strengths and potential limitations identified
+       - Summary of validation approach and key findings
+       - High-level portfolio characteristics assessment
+    
+    2. Methodological Evaluation (15%):
+       - Detailed analysis of selection framework effectiveness
+       - Assessment of criteria consistency and appropriate application
+       - Identification of potential biases with quantitative evidence
+       - Comparative analysis versus alternative selection approaches
+    
+    3. Sector-Level Analysis (20%):
+       - Sector-by-sector breakdown with benchmark comparisons
+       - Identification of sectors with strongest/weakest selections
+       - Analysis of sector weighting implications for portfolio performance
+       - Sector-specific criteria effectiveness assessment
+    
+    4. Individual Stock Validation (35%):
+       - Standardized validation profiles for selected stocks
+       - Comparative positioning versus sector peers
+       - Historical consistency analysis of key metrics
+       - Identification of distinctive strengths justifying inclusion
+    
+    5. Portfolio Characteristics Analysis (15%):
+       - Factor exposure quantification with visualization
+       - Diversification effectiveness metrics
+       - Risk decomposition analysis
+       - Potential performance scenarios under different market conditions
+    
+    6. Enhancement Recommendations (5%):
+       - Specific methodological improvement suggestions
+       - Identified selection gaps or blind spots
+       - Alternative screening approaches to consider
+       - Supplementary metrics to strengthen the framework
+  agent: justification_agent
+  output_file: "outputs/stock_selection_justification.md"
+
+optimize_stock_selection:
+  description: >
+    Apply advanced analytical techniques to refine the 100-stock selection, enhancing expected risk-adjusted performance through methodological improvements, bias correction, and evidence-based portfolio optimization. Your optimization process must:
+    
+    1. IMPLEMENT METHODOLOGICAL ENHANCEMENTS (35%):
+       - Apply sophisticated cross-validation techniques:
+         * Test selection robustness using multiple valuation methodologies
+         * Implement Monte Carlo simulation to assess selection stability
+         * Conduct out-of-sample testing using alternative time periods
+         * Apply bootstrapping techniques to quantify confidence intervals
+       - Design regime-specific performance testing:
+         * Evaluate performance in distinct market environments (bull/bear/sideways)
+         * Test factor behavior during different volatility regimes
+         * Assess performance during interest rate shift periods
+         * Analyze behavior during sector rotation phases
+    
+    2. CORRECT FOR ANALYTICAL BIASES (25%):
+       - Implement comprehensive bias identification and correction:
+         * Address potential survivorship bias through inclusion of delisted securities
+         * Correct for look-ahead bias by enforcing point-in-time data constraints
+         * Mitigate data anomaly impacts through statistical outlier adjustment
+         * Correct for time-period specific factors with appropriate normalization
+       - Apply sector-specific normalization:
+         * Develop industry-adjusted metrics accounting for structural differences
+         * Implement size-appropriate benchmarking within peer groups
+         * Correct for cyclical factors using through-cycle averaging
+         * Adjust for industry maturity and growth stage differences
+    
+    3. OPTIMIZE PORTFOLIO CONSTRUCTION (30%):
+       - Apply advanced optimization techniques:
+         * Implement efficient frontier analysis for optimal factor exposure
+         * Conduct correlation structure analysis to enhance diversification
+         * Apply risk factor decomposition to balance exposure
+         * Optimize for downside protection while maintaining upside potential
+       - Refine selection based on portfolio context:
+         * Evaluate marginal contribution to portfolio risk
+         * Assess diversification benefit of each holding
+         * Analyze factor exposure complementarity
+         * Evaluate conditional performance expectations
+    
+    4. IMPLEMENT EVIDENCE-BASED REFINEMENTS (10%):
+       - Apply systematic replacement methodology:
+         * Identify candidates with superior risk-reward characteristics
+         * Evaluate potential replacements using consistent methodology
+         * Quantify expected improvement from each substitution
+         * Maintain appropriate sector/industry balance
+       - Document enhancement process:
+         * Provide explicit rationale for each modification
+         * Quantify expected impact on portfolio characteristics
+         * Ensure transparency in refinement methodology
+         * Maintain audit trail of decision process
+  expected_output: >
+    A comprehensive optimization report containing:
+    
+    1. Executive Summary (10%):
+       - Overview of optimization methodology and process
+       - Summary of key enhancements and their expected impact
+       - Quantification of improvement in key portfolio metrics
+       - Assessment of optimized portfolio quality
+    
+    2. Methodological Enhancements (15%):
+       - Detailed explanation of advanced analytical techniques applied
+       - Cross-validation results across different methodologies
+       - Regime testing outcomes with performance implications
+       - Confidence assessment of selection robustness
+    
+    3. Bias Correction Analysis (15%):
+       - Identification of biases in original selection methodology
+       - Quantification of bias impact on selection quality
+       - Documentation of correction techniques applied
+       - Before/after comparison demonstrating bias mitigation
+    
+    4. Portfolio Optimization Results (20%):
+       - Analysis of factor exposure improvements
+       - Diversification enhancement metrics
+       - Risk decomposition before and after optimization
+       - Expected performance characteristics under different scenarios
+    
+    5. Refined Stock Selection (30%):
+       - Complete list of 100 stocks with indication of changes
+       - Specific justification for each addition and removal
+       - Comparative metrics showing improvement rationale
+       - Assessment of each stock's fit within the overall portfolio
+    
+    6. Implementation Guidance (10%):
+       - Suggested execution approach for portfolio adjustments
+       - Prioritization of most impactful changes
+       - Monitoring framework for validating optimization effectiveness
+       - Ongoing refinement recommendations
+  agent: optimization_agent
+  output_file: "outputs/optimized_stock_selection.md"
+
+justify_sentiment_selection:
+  description: >
+    Critically evaluate and provide comprehensive justification for the 10 stocks selected through integrated quantitative-sentiment analysis, demonstrating how sentiment intelligence enhances investment decision quality beyond traditional financial metrics. Your justification must:
+    
+    1. DECONSTRUCT SENTIMENT ADVANTAGE (35%):
+       - Implement detailed sentiment attribution analysis:
+         * Identify specific sentiment dimensions providing investment edge
+         * Quantify sentiment strength relative to sector and market benchmarks
+         * Analyze sentiment consistency across multiple information channels
+         * Evaluate sentiment sustainability through persistence metrics
+       - Apply sentiment-specific evidence protocols:
+         * Provide concrete examples of sentiment signals with investment relevance
+         * Document sentiment narrative evolution with specific inflection points
+         * Demonstrate how sentiment captures intangible value drivers
+         * Analyze historical cases where similar sentiment patterns predicted performance
+    
+    2. VALIDATE SENTIMENT-QUANTITATIVE SYNERGIES (35%):
+       - Identify and analyze reinforcement patterns:
+         * Cases where sentiment confirms and strengthens quantitative signals
+         * Situations where sentiment provides contextual validation for metrics
+         * Examples of sentiment providing causative explanation for quantitative trends
+         * Instances where sentiment enhances conviction in quantitative analysis
+       - Detect and evaluate predictive relationships:
+         * Sentiment indicators that historically lead fundamental improvements
+         * Statistical analysis of sentiment as a leading indicator
+         * Demonstration of how sentiment anticipates catalyst realization
+         * Examples of sentiment capturing emerging trends before quantification
+    
+    3. ADDRESS METHODOLOGICAL VULNERABILITIES (20%):
+       - Apply rigorous counterargument analysis:
+         * Identify and address primary skeptical perspectives for each selection
+         * Distinguish between transient sentiment and fundamental perception shifts
+         * Evaluate potential for sentiment mean reversion or overreaction
+         * Address concerns about sentiment data reliability and representativeness
+       - Implement sentiment quality assessment:
+         * Evaluate sentiment signal-to-noise ratio for each selection
+         * Assess potential for manipulation or distortion in sentiment data
+         * Analyze sentiment source credibility and reliability
+         * Test sentiment consistency across different information channels
+    
+    4. DEVELOP INTEGRATED CONFIDENCE FRAMEWORK (10%):
+       - Implement holistic evaluation methodology:
+         * Create integrated confidence scores combining sentiment and fundamental factors
+         * Develop uncertainty assessment for different analysis components
+         * Establish minimum evidence thresholds for inclusion
+         * Document conviction level with specific supporting evidence
+       - Apply comparative advantage assessment:
+         * Demonstrate specific advantages over purely quantitative selection
+         * Identify unique insights gained through sentiment integration
+         * Document cases where sentiment provided crucial differentiating information
+         * Quantify expected value-add from sentiment intelligence
+  expected_output: >
+    A comprehensive sentiment justification report containing:
+    
+    1. Executive Summary (10%):
+       - Overview of sentiment integration methodology and value
+       - Summary of key findings and sentiment advantages
+       - Assessment of sentiment quality and reliability
+       - Confidence framework explanation and application
+    
+    2. Selection-Specific Sentiment Analysis (40%):
+       - Individual justification profiles for each of the 10 stocks
+       - Specific sentiment dimensions providing investment edge for each
+       - Sentiment trajectory visualization with key inflection points
+       - Integration of sentiment with quantitative factors
+    
+    3. Comparative Sentiment Intelligence (20%):
+       - Benchmarking against stocks not selected despite strong fundamentals
+       - Contrasting sentiment profiles between selections and alternatives
+       - Sector-specific sentiment advantage analysis
+       - Quantification of sentiment edge versus peers
+    
+    4. Sentiment Factor Effectiveness (15%):
+       - Analysis of which sentiment dimensions proved most valuable
+       - Historical correlation between sentiment factors and subsequent performance
+       - Documentation of cases where sentiment predicted fundamental changes
+       - Evaluation of sentiment persistence and reliability
+    
+    5. Methodological Rigor Defense (15%):
+       - Comprehensive address of potential counterarguments
+       - Sentiment data quality and reliability assessment
+       - Distinction between signal and noise in sentiment data
+       - Limitations acknowledgment with mitigation strategies
+  agent: justification_agent
+  output_file: "outputs/sentiment_selection_justification.md"
+
+optimize_sentiment_selection:
+  description: >
+    Critically refine the list of 10 stocks selected through integrated analysis by applying advanced 
+    sentiment analysis techniques and addressing potential sentiment biases. Your optimization should:
+    
+    1. APPLY SOPHISTICATED SENTIMENT VALIDATION (35%):
+       - Implement multi-source verification methodology:
+         * Cross-validate sentiment signals across independent information channels
+         * Apply natural language processing for semantic context and nuance detection
+         * Weight sentiment sources based on historical predictive accuracy
+         * Differentiate between transient noise and persistent sentiment shifts
+       - Test sentiment resilience through counterfactual analysis:
+         * Simulate negative news scenarios to assess sentiment vulnerability
+         * Apply stress testing to identify fragile sentiment foundations
+         * Evaluate sentiment durability through historical volatility periods
+         * Quantify sentiment strength relative to market consensus
+    
+    2. CORRECT FOR SENTIMENT ANALYSIS BIASES (30%):
+       - Implement comprehensive bias identification and correction:
+         * Adjust for recency bias in sentiment weighting mechanisms
+         * Correct for company size and media coverage disparities
+         * Normalize for sector-specific sentiment baseline differences
+         * Implement statistical adjustments for outlier sentiment events
+       - Apply source-specific calibration techniques:
+         * Correct for demographic skews in social media sentiment sources
+         * Adjust for institutional bias in analyst coverage patterns
+         * Normalize for industry-specific reporting tendencies
+         * Account for potential manipulation in high-noise channels
+    
+    3. ENHANCE SENTIMENT-FUNDAMENTAL INTEGRATION (25%):
+       - Implement advanced predictive analytics:
+         * Identify leading sentiment indicators with proven fundamental correlation
+         * Model sentiment trajectory changes that precede performance shifts
+         * Detect insider behavior patterns that contradict public sentiment
+         * Quantify correlation between sentiment shifts and earnings surprises
+       - Develop sentiment contextual framework:
+         * Map sentiment dimensions to relevant fundamental metrics
+         * Weight sentiment factors based on business model relevance
+         * Adjust sentiment importance based on company lifecycle stage
+         * Prioritize sentiment domains with highest predictive value
+    
+    4. IMPLEMENT EVIDENCE-BASED REFINEMENTS (10%):
+       - Apply systematic replacement methodology:
+         * Establish clear threshold criteria for sentiment quality
+         * Identify alternative candidates with superior sentiment profiles
+         * Evaluate sentiment momentum versus absolute sentiment level
+         * Maintain sector diversity while optimizing sentiment quality
+       - Implement confidence-weighted adjustments:
+         * Quantify confidence level in each sentiment assessment
+         * Adjust position sizing based on sentiment conviction strength
+         * Document specific sentiment metrics driving selection decisions
+         * Establish monitoring framework for sentiment inflection points
+
+  expected_output: >
+    A comprehensive sentiment optimization report containing:
+    
+    1. Executive Summary (10%):
+       - Overview of the sentiment optimization methodology
+       - Key findings and sentiment patterns identified
+       - Summary of changes made to the selection with rationale
+       - Quantification of expected improvement from refinements
+    
+    2. Refined Stock Selection (25%):
+       - The optimized list of 10 stocks with clear indication of any changes made
+       - Comprehensive sentiment profile for each selection with multi-dimensional analysis
+       - Specific sentiment strengths identified for each company
+       - Conviction level assessment with supporting evidence
+    
+    3. Sentiment Validation Analysis (20%):
+       - Sentiment source credibility assessment for each selection
+       - Cross-validation results across multiple information channels
+       - Resilience testing outcomes and vulnerability assessment
+       - Sentiment consistency analysis with statistical significance
+    
+    4. Bias Correction Documentation (15%):
+       - Identified sentiment biases with quantitative impact assessment
+       - Correction methodologies applied with before/after comparison
+       - Source-specific adjustment factors with rationale
+       - Residual bias acknowledgment with materiality assessment
+    
+    5. Predictive Pattern Analysis (20%):
+       - Leading sentiment indicators identified for each selection
+       - Statistical correlation between sentiment patterns and fundamental changes
+       - Insider behavior alignment/divergence assessment
+       - Sentiment trajectory visualizations with key inflection points
+    
+    6. Implementation Framework (10%):
+       - Sentiment monitoring protocol for ongoing validation
+       - Key sentiment metrics to track for each selection
+       - Sentiment reversal risk assessment with contingency recommendations
+       - Time horizon considerations for sentiment-based positioning
+
+  agent: optimization_agent
+  output_file: "outputs/optimized_sentiment_selection.md"
+
+synthesize_final_selection:
+  description: >
+    Synthesize all previous analyses to identify the 5 strongest investment opportunities that demonstrate 
+    exceptional potential across both quantitative and sentiment dimensions. Your synthesis must:
+    
+    1. DEVELOP INTEGRATED EVALUATION FRAMEWORK (30%):
+       - Design sophisticated multi-factor scoring methodology:
+         * Establish precise weighting systems balancing fundamental and sentiment factors
+         * Create adaptable frameworks responsive to current market conditions
+         * Implement sector-specific evaluation criteria where appropriate
+         * Develop company-specific adjustment mechanisms for unique business models
+       - Incorporate temporal dimension analysis:
+         * Weight near-term catalysts against long-term competitive advantages
+         * Assess durability of business models through multiple economic cycles
+         * Evaluate sentiment sustainability versus transient momentum
+         * Analyze timing considerations for optimal entry points
+    
+    2. CONDUCT COMPREHENSIVE COMPARATIVE ANALYSIS (40%):
+       - Implement multi-dimensional ranking methodology:
+         * Perform systematic pairwise comparisons across candidate stocks
+         * Apply scenario-based stress testing under multiple market conditions
+         * Evaluate each stock against sector-specific benchmarks and peers
+         * Assess relative valuation with risk-adjusted return expectations
+       - Analyze portfolio construction implications:
+         * Calculate correlation coefficients between candidate investments
+         * Evaluate diversification benefits across sectors and factor exposures
+         * Model portfolio-level risk metrics under various combinations
+         * Test resilience through simulated market stress scenarios
+    
+    3. EXECUTE PRECISION SELECTION PROCESS (20%):
+       - Apply rigorous final filtering mechanics:
+         * Select exactly 5 stocks with the highest conviction levels
+         * Ensure appropriate diversification without artificial constraints
+         * Include at least one contrarian position with asymmetric return potential
+         * Balance growth opportunities with value-oriented selections
+       - Implement coherence assessment:
+         * Verify logical consistency across the selected portfolio
+         * Test for factor concentration risks in the final selection
+         * Evaluate thematic alignment with macro environment
+         * Ensure complementary return drivers across selections
+    
+    4. DEVELOP COMPREHENSIVE INVESTMENT CASES (10%):
+       - Synthesize compelling investment thesis for each selection:
+         * Integrate quantitative strengths and sentiment advantages
+         * Articulate clear value proposition and competitive differentiation
+         * Identify specific catalysts with expected timing and impact
+         * Provide detailed risk assessment with mitigating factors
+
+  expected_output: >
+    A comprehensive final selection document containing:
+    
+    1. Executive Summary (10%):
+       - Overview of the 5 final selections with conviction levels
+       - Summary of the selection methodology and key differentiators
+       - Portfolio-level characteristics and risk/return expectations
+       - Strategic themes represented in the selections
+    
+    2. Selection Methodology Documentation (15%):
+       - Detailed explanation of the evaluation framework
+       - Factor weighting justification with adaptations for current market conditions
+       - Decision process documentation with explicit ranking criteria
+       - Description of comparative analysis techniques applied
+    
+    3. Final Selection Profiles (40%):
+       - Individual profiles for each selected company including:
+         * Complete company identification (name, ticker, sector, industry)
+         * Comprehensive investment thesis integrating all analysis streams
+         * Key quantitative metrics supporting the selection
+         * Sentiment advantage articulation with supporting evidence
+         * Specific catalysts with expected timing and magnitude
+         * Risk assessment with mitigating factors
+    
+    4. Comparative Selection Analysis (20%):
+       - Side-by-side comparison matrix across key evaluation criteria
+       - Relative ranking justification for selected versus non-selected stocks
+       - Trade-off analysis explaining final determinations
+       - Explicit rationale for inclusion/exclusion decisions
+    
+    5. Portfolio Construction Analysis (15%):
+       - Aggregate portfolio characteristics assessment
+       - Diversification analysis across sectors, factors, and risk exposures
+       - Correlation matrix and portfolio-level risk metrics
+       - Expected performance characteristics under various market scenarios
+    
+    6. Implementation Guidance (10%):
+       - Position sizing recommendations with rationale
+       - Suggested entry strategies and timing considerations
+       - Monitoring framework with key metrics to track
+       - Risk management protocols and exit criteria
+
+  agent: synthesizer_agent
+  output_file: "outputs/final_selection_synthesis.md"
+
+generate_investment_thesis:
+  description: >
+    Develop comprehensive, institutional-quality investment theses for the 5 selected stocks that would satisfy 
+    the rigorous standards of professional investment committees. Your theses must include:
+    
+    1. COMPREHENSIVE BUSINESS ANALYSIS (25%):
+       - Execute thorough company diagnostic:
+         * Detailed company overview with complete business model breakdown
+         * Product/service portfolio analysis with revenue contribution by segment
+         * Comprehensive competitive positioning assessment with market share data
+         * Proprietary assets and intellectual property evaluation
+       - Conduct leadership and governance assessment:
+         * Management team track record and execution history
+         * Capital allocation philosophy and historical effectiveness
+         * Corporate governance structure and shareholder alignment
+         * Succession planning and bench strength evaluation
+    
+    2. MULTI-FACETED FINANCIAL ANALYSIS (25%):
+       - Implement rigorous historical performance review:
+         * 5-year financial trend analysis with key metrics and variance explanations
+         * Margin structure evolution with driver decomposition
+         * Return on invested capital assessment with component breakdown
+         * Cash conversion efficiency and working capital management
+       - Apply sophisticated valuation methodology:
+         * Multi-stage discounted cash flow analysis with explicit assumptions
+         * Relative valuation using appropriate peer benchmarking
+         * Sum-of-parts analysis where applicable for conglomerates
+         * Scenario-based intrinsic value determination with probability weighting
+    
+    3. COMPREHENSIVE GROWTH ASSESSMENT (20%):
+       - Identify specific growth vectors with quantification:
+         * Addressable market sizing with penetration rate analysis
+         * Organic growth opportunities with execution requirements
+         * M&A landscape and strategic acquisition potential
+         * International expansion prospects with market-specific considerations
+       - Apply growth sustainability framework:
+         * Competitive moat analysis and durability assessment
+         * Pricing power evaluation and unit economics
+         * Product pipeline and innovation trajectory
+         * Secular trend alignment and tailwind strength
+    
+    4. MULTI-DIMENSIONAL RISK ASSESSMENT (20%):
+       - Implement comprehensive risk identification protocol:
+         * Competitive threats with probability and impact assessment
+         * Technological disruption vulnerabilities with timeline estimates
+         * Regulatory and legal exposure analysis by jurisdiction
+         * Financial risks including leverage, liquidity, and covenant analysis
+       - Develop risk mitigation framework:
+         * Company-specific hedging strategies and natural offsets
+         * Management preparedness for key risk scenarios
+         * Balance sheet strength relative to risk profile
+         * Potential alternative strategies under adverse conditions
+    
+    5. ACTIONABLE INVESTMENT RECOMMENDATION (10%):
+       - Provide explicit investment parameters:
+         * Specific price targets with underlying assumptions
+         * Expected holding period with milestone markers
+         * Position sizing guidance based on risk/reward assessment
+         * Entry/exit strategy recommendations with trigger points
+       - Implement monitoring framework:
+         * Key performance indicators to validate/invalidate thesis
+         * Critical metrics requiring immediate reassessment
+         * Competitive developments warranting thesis revision
+         * Regular review cadence recommendation
+
+  expected_output: >
+    Five institutional-quality investment theses (one for each selected stock) containing:
+    
+    1. Executive Summary (10%):
+       - Investment recommendation with conviction level
+       - Key thesis drivers and differentiated insights
+       - Expected return with timeframe and risk assessment
+       - Critical success factors and monitoring triggers
+    
+    2. Company Overview (15%):
+       - Comprehensive business description and history
+       - Detailed product/service portfolio analysis
+       - Management assessment and governance structure
+       - Competitive positioning with market share data
+    
+    3. Financial Analysis (25%):
+       - 5-year historical performance review with trend analysis
+       - Detailed margin structure and return metrics evaluation
+       - Balance sheet strength and capital structure assessment
+       - Cash flow analysis and capital allocation history
+       - Comprehensive valuation using multiple methodologies
+    
+    4. Growth Analysis (20%):
+       - Addressable market sizing and penetration rates
+       - Specific growth catalysts with timing and magnitude estimates
+       - Product pipeline or expansion opportunities assessment
+       - Organic vs. inorganic growth strategy evaluation
+       - Secular trends supporting future growth
+    
+    5. Risk Assessment (15%):
+       - Competitive threats and technological disruption potential
+       - Regulatory and legal considerations with impact analysis
+       - Financial risks including debt obligations and liquidity
+       - Scenario analysis with clear downside protection assessment
+       - Risk mitigation strategies and offsetting factors
+    
+    6. Investment Recommendation (15%):
+       - Price targets with bull/base/bear scenarios
+       - Expected holding period and return potential
+       - Position sizing recommendations based on conviction
+       - Entry and exit criteria with specific trigger points
+       - Key metrics to monitor for thesis validation/invalidation
+    
+    7. Supporting Materials:
+       - Comprehensive financial models and projections
+       - Comparative analysis versus direct competitors
+       - Historical precedents supporting the investment case
+       - Visualization of key metrics and trends
+
+  agent: thesis_agent
+  output_file: "outputs/investment_theses.md"
+
+store_thesis_json:
+  description: >
+    Convert the comprehensive investment theses into a structured JSON format that preserves all critical 
+    information while enabling programmatic access and integration with investment management systems. Your conversion must:
+    
+    1. IMPLEMENT COMPREHENSIVE DATA EXTRACTION (40%):
+       - Execute systematic information parsing from each thesis:
+         * Full legal company name with exact formatting (as registered)
+         * Precise ticker symbol with exchange identifier if applicable
+         * Complete industry classification with sector and sub-industry
+         * All substantive analysis components from the original thesis
+       - Apply rigorous quantitative data capture:
+         * Key valuation metrics with appropriate precision and units
+         * Growth rates with timeframe specifications
+         * Financial ratios with component definitions
+         * Risk metrics with probability and impact assessments
+    
+    2. ENSURE PERFECT DATA INTEGRITY (30%):
+       - Implement multi-source verification protocol:
+         * Cross-reference company names against SEC filings and official documents
+         * Verify ticker symbols against primary exchange listings
+         * Validate industry classifications using standard taxonomies
+         * Confirm quantitative data against original source materials
+       - Apply data quality assurance measures:
+         * Maintain consistent decimal precision across numeric values
+         * Include appropriate timestamps for time-sensitive information
+         * Apply uniform date formatting with explicit timezone reference
+         * Preserve contextual information essential for data interpretation
+    
+    3. DEVELOP OPTIMAL HIERARCHICAL STRUCTURE (30%):
+       - Design logical schema architecture:
+         * Create top-level array of company objects for clean iteration
+         * Implement consistent nested sub-objects for categorical organization
+         * Develop intuitive property naming conventions
+         * Ensure proper delineation between factual data and analytical conclusions
+       - Apply schema optimization techniques:
+         * Balance between normalization and readability
+         * Minimize redundancy while maintaining context
+         * Create appropriate cross-referencing for related information
+         * Implement consistent patterns for similar data types
+
+  expected_output: >
+    A perfectly structured and validated JSON file containing:
+    
+    1. Comprehensive Company Information (15%):
+       - Exact legal company names without variations
+       - Correct ticker symbols with exchange identifiers when required
+       - Complete industry classification using standard taxonomy
+       - Key company metadata including founding date, headquarters, etc.
+    
+    2. Complete Investment Thesis Components (30%):
+       - Full investment thesis text preserved without content loss
+       - Structured representations of key analysis components
+       - Properly formatted sections maintaining logical organization
+       - All substantive insights from original analysis
+    
+    3. Quantitative Data Elements (25%):
+       - Key financial metrics with proper precision and units
+       - Growth rates with explicit timeframes
+       - Valuation parameters with underlying assumptions
+       - Risk metrics with quantitative assessments
+    
+    4. Investment Recommendation Details (15%):
+       - Price targets with scenario specifications
+       - Timeframes with explicit start/end dates
+       - Return expectations with component breakdown
+       - Position sizing guidance with rationale
+    
+    5. Technical Quality Assurance (15%):
+       - Valid JSON structure passing strict parsing requirements
+       - Consistent schema implementation across all entries
+       - Uniform property naming following established conventions
+       - Appropriate data typing for all fields
+       - Comprehensive error checking confirmations
+    
+    The file must be machine-readable while maintaining all substantive investment information.
+
+  agent: thesis_agent
+  output_file: "outputs/investment_thesis.json"
+
+create_simplified_thesis_json:
+  description: >
+    Create a clean, simplified JSON output for the top 5 recommended companies that focuses on essential 
+    information while maintaining complete accuracy and integrity for integration with investment tracking systems.
+    
+    1. ENSURE ABSOLUTE INFORMATION ACCURACY (50%):
+       - Implement rigorous company information verification:
+         * Full legal company names must exactly match official registration documents
+         * Ticker symbols must be precisely accurate with appropriate exchange prefixes/suffixes
+         * Industry classification must conform to standard taxonomies (GICS, ICB, etc.)
+         * All factual statements must be verifiable against authoritative sources
+       - Apply comprehensive validation protocol:
+         * Cross-reference company information against multiple authoritative sources
+         * Verify ticker symbols against official exchange listings
+         * Confirm ticker formatting conventions for international securities
+         * Document verification process with source citations
+    
+    2. MAINTAIN THESIS INTEGRITY (30%):
+       - Implement careful thesis condensation methodology:
+         * Preserve all substantive investment insights from original analysis
+         * Maintain logical flow and argumentation structure
+         * Retain key quantitative metrics and assessments
+         * Ensure company-specific analysis (not generic content)
+       - Apply quality control measures:
+         * Review for internal consistency and logical coherence
+         * Validate all quantitative claims against source materials
+         * Ensure appropriate specificity for each company
+         * Preserve distinctive insights unique to each thesis
+    
+    3. OPTIMIZE STRUCTURAL IMPLEMENTATION (20%):
+       - Execute precise schema adherence:
+         * Follow exactly the specified JSON structure without deviation
+         * Implement consistent property naming conventions
+         * Apply appropriate data typing for all fields
+         * Ensure parseable JSON format with proper syntax
+       - Apply output verification:
+         * Validate JSON structure with formal schema validation
+         * Confirm all required properties are present for each company
+         * Verify character encoding and escaping is correctly applied
+         * Test parse functionality with standard JSON parser
+
+  expected_output: >
+    A pristine, production-ready JSON file with exactly this structure:
+    ```json
+    {
+        "investments": [
+            {
+                "company_name": "Exact Legal Company Name",
+                "ticker": "PRECISE_TICKER",
+                "thesis": "Complete investment thesis with all substantive content..."
+            },
+            {
+                "company_name": "Another Exact Company Name Inc.",
+                "ticker": "TICKER2",
+                "thesis": "Comprehensive thesis for this specific company..."
+            },
+            ...exactly three additional real companies with correct information...
+        ]
+    }
+    ```
+    
+    The JSON output must meet these absolute requirements:
+    1. Contain EXACTLY 5 investment entries - no more, no less
+    2. Use only REAL companies with their EXACT legal names
+    3. Include CORRECT ticker symbols for each company
+    4. Contain COMPANY-SPECIFIC thesis content for each entry
+    5. Follow the EXACT schema structure specified
+    6. Be syntactically valid and parseable JSON
+
+  agent: thesis_agent
+  output_file: "outputs/thesis_json.json"
+
+terminate_process:
+  description: >
+    Orchestrate the systematic conclusion of the investment analysis workflow, ensuring comprehensive validation,
+    documentation, and resource management for proper process termination. Your termination protocol must:
+    
+    1. EXECUTE COMPREHENSIVE OUTPUT VERIFICATION (40%):
+       - Implement systematic output validation:
+         * Verify existence of all required output files in the specified locations
+         * Validate file integrity and appropriate content for each deliverable
+         * Confirm JSON outputs are properly formatted and pass parsing tests
+         * Verify correct number of investment recommendations (exactly 5)
+       - Apply content quality verification:
+         * Confirm all recommendations use real companies with correct tickers
+         * Validate presence of required analytical components in each document
+         * Verify internal consistency across different output files
+         * Identify and document any content gaps or anomalies
+    
+    2. GENERATE COMPREHENSIVE PROCESS DOCUMENTATION (35%):
+       - Create detailed workflow summary:
+         * Document all completed process steps with timestamps
+         * Record execution time for each workflow component
+         * Note any exceptions, warnings, or issues encountered
+         * Provide links to all generated output files with access instructions
+       - Develop executive summary:
+         * Synthesize key findings from the analytical process
+         * Highlight primary investment recommendations with rationale
+         * Summarize risk factors and special considerations
+         * Provide recommendations for future process improvements
+    
+    3. IMPLEMENT RESOURCE MANAGEMENT PROTOCOL (25%):
+       - Execute systematic resource cleanup:
+         * Close all open file handles and database connections
+         * Release any temporary storage allocations
+         * Terminate auxiliary processes and services
+         * Log all cleanup activities for audit purposes
+       - Prepare for future execution:
+         * Archive working files according to retention policy
+         * Document system state for future reference
+         * Update process metadata for tracking purposes
+         * Set appropriate status flags for workflow completion
+
+  expected_output: >
+    A comprehensive termination report containing:
+    
+    1. Executive Summary (15%):
+       - Overview of the completed investment analysis process
+       - Key findings and final recommendations
+       - Notable insights gained through the analysis
+       - Process effectiveness assessment
+    
+    2. Output Verification Results (30%):
+       - Complete inventory of all generated output files
+       - Validation status for each deliverable
+       - Content quality assessment results
+       - Documentation of any identified issues or anomalies
+    
+    3. Process Performance Analysis (20%):
+       - Workflow execution metrics with timing analysis
+       - Resource utilization statistics
+       - Exception and warning summary
+       - Performance bottleneck identification
+    
+    4. Investment Recommendation Summary (20%):
+       - Concise overview of the 5 final investment recommendations
+       - Key thesis elements for each selection
+       - Risk-reward assessment for the portfolio
+       - Implementation guidance summary
+    
+    5. System Status Report (10%):
+       - Resource cleanup confirmation
+       - Archive status and location references
+       - System state documentation
+       - Service termination verification
+    
+    6. Process Improvement Recommendations (5%):
+       - Identified workflow optimization opportunities
+       - Data quality enhancement suggestions
+       - Analysis methodology refinement proposals
+       - Integration improvement recommendations
+
+  agent: portfolio_manager
+  output_file: "outputs/termination_confirmation.md"
+
+refine_stock_analysis:
+  description: >
+    Conduct a sophisticated multi-perspective refinement of the investment theses by systematically applying
+    diverse expert analytical frameworks to challenge assumptions, identify blind spots, and enhance overall
+    investment decision quality. Your refinement process must:
+    
+    1. IMPLEMENT MULTI-EXPERT ANALYTICAL FRAMEWORK (40%):
+       - Deploy comprehensive analytical perspective suite:
+         * Value Investor: Apply margin of safety principles, intrinsic value focus, and quality assessment
+         * Growth Investor: Challenge TAM assumptions, evaluate sustainable growth drivers, and assess scalability
+         * Technical Analyst: Evaluate price patterns, momentum indicators, and market positioning
+         * Risk Manager: Identify overlooked risks, stress test assumptions, and assess downside scenarios
+         * Industry Specialist: Provide sector-specific insights, competitive analysis, and technological trends
+       - Implement structured analytical methodology for each perspective:
+         * Apply consistent evaluation criteria while preserving unique methodological approaches
+         * Utilize perspective-specific analytical tools and frameworks
+         * Identify critical factors most relevant to each analytical approach
+         * Generate explicit confidence assessments from each expert viewpoint
+    
+    2. FACILITATE STRUCTURED ANALYTICAL DEBATE (30%):
+       - Implement systematic dialectical process:
+         * Document thesis-antithesis dynamics for key investment assumptions
+         * Identify areas of consensus versus disagreement among perspectives
+         * Quantify confidence levels and conviction strength for different aspects
+         * Map areas of highest uncertainty requiring additional investigation
+       - Apply intellectual tension resolution framework:
+         * Evaluate competing viewpoints based on evidentiary strength
+         * Reconcile contradictory assessments through deeper analysis
+         * Differentiate between fundamental disagreements and time-horizon differences
+         * Generate synthesis perspectives incorporating valid insights from multiple angles
+    
+    3. ENHANCE INVESTMENT THESIS QUALITY (20%):
+       - Implement comprehensive thesis strengthening protocol:
+         * Address the most compelling counter-arguments with additional evidence
+         * Enhance areas identified as having insufficient analytical depth
+         * Add nuance to overly deterministic or simplistic elements
+         * Incorporate multiple scenario planning with probability weighting
+       - Apply holistic enhancement methodology:
+         * Strengthen analytical weak points identified through expert critique
+         * Integrate diverse perspective insights into cohesive narrative
+         * Balance opposing viewpoints with appropriate weighting
+         * Acknowledge areas of genuine uncertainty with appropriate humility
+    
+    4. DEVELOP IMPLEMENTATION GUIDANCE (10%):
+       - Create actionable position management framework:
+         * Provide specific entry criteria with price ranges and conditions
+         * Establish clear position sizing guidelines based on conviction level
+         * Develop explicit risk management parameters and stop-loss criteria
+         * Create monitoring protocol with key metrics and reassessment triggers
+       - Implement conviction-based portfolio integration:
+         * Rank recommendations by conviction level with explicit rationale
+         * Provide correlation analysis for portfolio context
+         * Assess contribution to overall portfolio characteristics
+         * Develop time horizon expectations with milestone markers
+
+  expected_output: >
+    A comprehensive thesis refinement document containing:
+    
+    1. Executive Summary (10%):
+       - Overview of the refinement methodology
+       - Key insights gained through the multi-perspective analysis
+       - Summary of major thesis modifications and enhancements
+       - Final conviction assessment for each investment recommendation
+    
+    2. Multi-Expert Analysis (30%):
+       - Detailed perspective-specific assessments for each investment thesis
+       - Critical challenges raised by each expert viewpoint
+       - Unique insights contributed by different analytical approaches
+       - Areas of consensus and disagreement among expert perspectives
+    
+    3. Dialectical Analysis (25%):
+       - Point-counterpoint examination of key thesis elements
+       - Evidence evaluation for competing interpretations
+       - Uncertainty mapping with confidence assessments
+       - Resolution of analytical tensions with supporting rationale
+    
+    4. Enhanced Investment Theses (25%):
+       - Refined investment case for each recommendation incorporating multi-perspective insights
+       - Strengthened arguments addressing key counter-perspectives
+       - Nuanced treatment of critical uncertainties and risks
+       - Scenario analysis with probability-weighted outcomes
+    
+    5. Implementation Framework (10%):
+       - Position sizing recommendations based on conviction level
+       - Entry strategy with specific conditions and price ranges
+       - Risk management protocols with explicit parameters
+       - Monitoring framework with key metrics and reassessment triggers
+    
+    6. Final Conviction Assessment (10%):
+       - Conviction ranking for the recommendations with explicit justification
+       - Confidence score breakdown across different thesis components
+       - Time horizon expectations with milestone markers
+       - Portfolio context considerations and fit assessment
+
+  agent: portfolio_manager
+  output_file: "outputs/refined_investment_analysis.md"

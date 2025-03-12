@@ -1,0 +1,29 @@
+{
+  "investments": [
+    {
+      "company_name": "Apple Inc.",
+      "ticker": "AAPL",
+      "thesis": "Apple showcases a robust financial foundation with a market cap of $3.59 trillion, a P/E ratio of 37.89, and a strong profit margin of 24.3%. The innovative capability and brand loyalty underpin its market dominance. Despite a neutral sentiment score of 0.11, Apple remains a trustworthy long-term compounder, leveraging its ecosystem to propel future growth. Future product releases and expansion into new tech domains. Market saturation and competitive pressures. Expected Returns - Base: 8%, Bull: 12%, Bear: 5%."
+    },
+    {
+      "company_name": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "thesis": "Alphabet’s profitability (28.6% margin) and low P/E ratio of 21.65 reflect solid value and growth potential. While sentiment sits neutrally at 0.14, its leading role in digital ads and technology growth fuels tailwinds for continued outperformance. Ad revenue recovery and cloud segment growth. Regulatory challenges and ad market volatility. Expected Returns - Base: 8%, Bull: 11%, Bear: 5%."
+    },
+    {
+      "company_name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "thesis": "With a market cap of $2.92 trillion and a profit margin of 35.4%, Microsoft benefits from a diversified software and cloud services portfolio. Despite neutral sentiment at 0.13, strategic growth in AI and cloud computing bolster its investment case. Expansion in AI and cloud services; ongoing subscriptions. Regulatory scrutiny and intense competition in cloud computing. Expected Returns - Base: 7%, Bull: 10%, Bear: 4%."
+    },
+    {
+      "company_name": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "thesis": "Dominant e-commerce presence and AWS growth. Expected Return/Timeframe: 20% over the next 18 months. Medium risk, related to regulatory and operating margin pressures. Monitoring Triggers: AWS performance, consumer demand trends, regulatory impacts."
+    },
+    {
+      "company_name": "Tesla Inc.",
+      "ticker": "TSLA",
+      "thesis": "EV market leadership, renewable energy momentum. Expected Return/Timeframe: 8% over the next 12 months. High risk due to competition, technological changes, and leadership dependency. Monitoring Triggers: Vehicle delivery targets, innovative advancements, regulatory news."
+    }
+  ]
+}
